@@ -1,0 +1,49 @@
+DROP TABLE IF EXISTS TBL_ANIMALES;
+DROP TABLE IF EXISTS USUARIOS;
+DROP TABLE IF EXISTS PRODUCTOS;
+DROP TABLE IF EXISTS GUARDERIA;
+
+
+CREATE TABLE TBL_ANIMALES(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100) NOT NULL,
+raza VARCHAR (100) NOT NULL,
+color VARCHAR(100) NOT NULL,
+pelaje VARCHAR(100) NOT NULL,
+fecha_nacimiento VARCHAR(100) NOT NULL,
+vacunas VARCHAR(100) NOT NULL,
+adopcion VARCHAR(50) DEFAULT NULL,
+nombre_adopcion VARCHAR(250) DEFAULT NULL,
+tipo VARCHAR(100) NOT NULL,
+foto longblob,
+str text);
+
+CREATE TABLE USUARIOS(
+id INT AUTO_INCREMENT PRIMARY KEY,
+active tinyint  default '1',
+username varchar(30) not null,
+password varchar(30) not null,
+rol varchar(30) not null
+);
+
+CREATE TABLE PRODUCTOS(
+id INT PRIMARY KEY,
+producto VARCHAR(100) NOT NULL,
+precio INT NOT NULL,
+cantidad INT NOT NULL,
+foto longblob,
+str text
+);
+
+CREATE TABLE GUARDERIA(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100) NOT NULL,
+raza VARCHAR (100) NOT NULL,
+color VARCHAR(100) NOT NULL,
+tipo VARCHAR(100) NOT NULL,
+fecha_salida VARCHAR(100) NOT NULL,
+fecha_entrada VARCHAR(100) NOT NULL,
+costo INT NOT NULL,
+foto longblob,
+str text
+);

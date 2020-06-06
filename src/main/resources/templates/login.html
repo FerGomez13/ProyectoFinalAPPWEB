@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="StyleSheet" href="/animal.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kreon&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="contenedor">
+    <header>
+        <h1>Sistema de Adopción de Animales Domésticos</h1>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn"><img style="position: absolute;top: 0;right: 1px;width: 50px;height: 50px" name="btnSalir" src="exit.png"/></button>
+        </form>
+        <a href="/"><img style="position: absolute;top: 55px;right: 1px;width: 50px;height: 50px" name="btnhome" src="home.png"/></a>
+    </header>
+    <nav>
+        <a><br><label class="textT" style="color: white;text-shadow: 2px 2px 4px #000000;">Iniciar Sesión</label><br></a><br>
+    </nav>    <center>
+        <div th:if="${param.error}">
+            Usuario o contraseña no válidos
+        </div>
+        <div th:if="${param.logout}">
+            Usted se a desconectado
+        </div>
+        <div class="div">
+            <form th:action="@{/login}" method="post">
+                <br>
+                <br>
+                <label class="textT"> Usuario: </label>
+                <input class="input"  type="text" name="username"/>
+                <label class="textT"> Contraseña: </label>
+                <input class="input"  type="password" name="password"/>
+                <br><br><br><br>
+                <button class="textT" id=boton  name="entrar">Entrar</button>
+            </form>
+        </div>
+    </center>
+</div>
+</body>
+</html>

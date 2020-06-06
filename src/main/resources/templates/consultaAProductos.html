@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Adoptar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="StyleSheet" href="animal.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kreon&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="contenedor">
+    <header>
+        <h1>Sistema de Adopción de Animales Domésticos</h1>
+        <center><label style="text-decoration: none;font-family: 'Fredoka One', cursive;color: white;text-shadow: 2px 2px 4px #000000;font-size: 25px;"> Tienda de accesorios</label>
+        </center>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn"><img style="position: absolute;top: 0;right: 1px;width: 50px;height: 50px" name="btnSalir" src="exit.png"/></button>
+        </form>
+        <a href="/"><img style="position: absolute;top: 55px;right: 1px;width: 50px;height: 50px" name="btnhome" src="home.png"/></a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/InicioProductos"> Registrar</a></li>
+            <li><a href="/infoProductos"> Consultar</a></li>
+            <li><a href="/modificarProductos"> Modificar</a></li>
+            <li><a href="/eliminarProductos"> Eliminar</a></li>
+            <li><a href="/adoptarProductos"> Comprar</a></li>
+        </ul>
+    </nav>
+    <div class="div">
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Fotografía</th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pro : ${product}">
+                <td th:text="${pro.id}"></td>
+                <td th:text="${pro.producto}"></td>
+                <td th:text="${pro.precio}"></td>
+                <td th:text="${pro.cantidad}"></td>
+                <td><img th:src="${'data:image/png;base64,' + pro.str}" style="width:100%;max-width:80px"/></td>
+                <td>
+                    <a th:href="@{/comprar/comprarProductos/{id}(id=${pro.id})}">
+                        <button class=btn name="btnAdoptar"><img class="imag" src="select.png"/></button>
+                    </a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>SAAD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="StyleSheet" href="animal.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kreon&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="contenedor">
+    <header>
+        <h1>Sistema de Adopción de Animales Domésticos</h1>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn"><img style="position: absolute;top: 0;right: 1px;width: 50px;height: 50px" name="btnSalir" src="exit.png"/></button>
+        </form>
+    </header>
+    <nav>
+        <center>
+            <ul>
+                <li><a>Menú Principal</a></li>
+            </ul>
+        </center>
+    </nav>
+
+    <div class="div " ><br>
+        <p class="TextTH" style="margin-right:100px; ">
+            <img  style="margin-right:10px;" src="perrosygatos.jpg" align="left" border= 1>
+        ¡Bienvenid@!<br>
+            En este sistema podrás encontrar un catálogo de animales para adoptar, accesorios y también ofrecemos el servicio de guardería.<br>
+            La adopción es una alternativa que a la hora de adquirir un animal de compañía beneficia a todos: a la familia, a las entidades de protección animal y, por supuesto, al propio perro o gato.
+        Los adoptantes han manifestado que su motivo principal para hacerlo fue su sensibilización con el problema y para colaborar con la protectora.
+        También se han decidido a adoptar por recomendaciones, porque es una vía más económica y
+        porque los animales están en mejores condiciones.
+        </p>
+        <a href="/info"><img style="position: absolute;top: 170px;right: 1px; width: 100px;height: 100px" alt="" src="animales.png"/></a>
+        <a href="/adoptar"><img style="position: absolute;top: 290px;right: 1px; width: 100px;height: 100px" alt="" src="adoptar.png"/></a>
+        <a href="/infoGuarderia"><img style="position: absolute;top: 410px;right: 1px; width: 100px;height: 100px" alt="" src="guarderia.png"/></a>
+        <a href="/adoptarProductos"><img style="position: absolute;top: 520px;right: 1px; width: 100px;height: 100px" alt="" src="comprar.png"/></a>
+    </div>
+</div>
+</body>
+</html>

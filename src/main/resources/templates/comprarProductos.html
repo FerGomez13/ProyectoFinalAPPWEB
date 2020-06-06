@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Compra de Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="StyleSheet" href="/animal.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kreon&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="contenedor">
+    <header>
+        <h1>Sistema de Adopción de Animales Domésticos</h1>
+        <center><label style="text-decoration: none;font-family: 'Fredoka One', cursive;color: white;text-shadow: 2px 2px 4px #000000;font-size: 25px;"> Tienda de accesorios</label>
+        </center>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn"><img style="position: absolute;top: 0;right: 1px;width: 50px;height: 50px" name="btnSalir" src="exit.png"/></button>
+        </form>
+        <a href="/"><img style="position: absolute;top: 55px;right: 1px;width: 50px;height: 50px" name="btnhome" src="home.png"/></a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/InicioProductos"> Registrar</a></li>
+            <li><a href="/infoProductos"> Consultar</a></li>
+            <li><a href="/modificarProductos"> Modificar</a></li>
+            <li><a href="/eliminarProductos"> Eliminar</a></li>
+            <li><a href="/adoptarProductos"> Comprar</a></li>
+        </ul>
+    </nav>
+    <div class="div">
+
+        <form action="#" th:action="@{/comprar/comprateProductos}" th:object="${product}" method="post">
+            <center>
+                <br>
+                <label class="textT" > Artículo Comprado </label><br>
+                <input type="hidden" th:field="*{cantidad}">
+                <br>
+                <button class="textT" id=boton  name="Adoptar">Regresar</button>
+            </center>
+            <input type="hidden" nombre="id" th:field="*{id}">
+            <input type="hidden" nombre="id" th:field="*{producto}">
+            <input type="hidden" tipo="id" th:field="*{precio}">
+            <input type="hidden" raza="id" th:field="*{cantidad}">
+            <input type="hidden" class="textT" name="adjunto" accept=".pdf,.jpg,.png" th:field="*{foto}">
+        </form>
+    </div>
+</div>
+</body>
+</html>

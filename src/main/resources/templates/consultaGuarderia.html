@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Consulta Guarderia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="StyleSheet" href="animal.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kreon&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="contenedor">
+    <header>
+    <h1>Sistema de Adopción de Animales Domésticos</h1>
+        <center><label style="text-decoration: none;font-family: 'Fredoka One', cursive;color: white;text-shadow: 2px 2px 4px #000000;font-size: 25px;"> Servicio de Guardería</label>
+        </center>
+    <form th:action="@{/logout}" method="post">
+        <button class="btn"><img style="position: absolute;top: 0;right: 1px;width: 50px;height: 50px" name="btnSalir" src="exit.png"/></button>
+    </form>
+    <a href="/"><img style="position: absolute;top: 55px;right: 1px;width: 50px;height: 50px" name="btnhome" src="home.png"/></a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/InicioGuarderia">Registrar</a></li>
+            <li><a href="/infoGuarderia">Consultar</a></li>
+            <li><a href="/modificarGuarderia">Modificar</a></li>
+            <li><a href="/eliminarGuarderia"> Eliminar</a></li>
+        </ul>
+    </nav>
+    <div class="div">
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Color</th>
+                <th>Raza</th>
+                <th>Fecha de Entrada</th>
+                <th>Fecha de Salida</th>
+                <th>Costo</th>
+                <th>Fotografía</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="gua : ${guard}">
+                <td th:text="${gua.id}"></td>
+                <td th:text="${gua.nombre}"></td>
+                <td th:text="${gua.tipo}"></td>
+                <td th:bgcolor="${gua.color}"></td>
+                <td th:text="${gua.raza}"></td>
+                <td th:text="${gua.fecha_entrada}"></td>
+                <td th:text="${gua.fecha_salida}"></td>
+                <td th:text="${gua.costo}"></td>
+                <td><img th:src="${'data:image/png;base64,' + gua.str}" style="width:100%;max-width:80px"/></td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
